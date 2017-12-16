@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.caro.practicaandroid.Models.Usuario;
+
 public class SegundoActivity extends AppCompatActivity {
 
     private TextView txtView;
@@ -21,11 +23,13 @@ public class SegundoActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        if(bundle != null && bundle.getString("text") != null){
-            String texto = bundle.getString("texto");
-            txtView.setText(texto);
+       if(bundle != null ){
+          String texto = bundle.getString("texto");
+          txtView.setText(texto);
 
-            Toast.makeText(context,texto,Toast.LENGTH_SHORT);
+          Toast.makeText(context,texto,Toast.LENGTH_SHORT);
+          Usuario user = (Usuario) bundle.getSerializable("user");
+        
         }else{
             Toast.makeText(context,"Error",Toast.LENGTH_SHORT);
         }
